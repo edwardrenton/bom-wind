@@ -54,14 +54,12 @@ def bomDF(state, place, station):
         bomData["Wind Speed (m/s)"] = bomData[columns[1]].apply(lambda x: x*1000/(60*60))
         bomData["Wind Gust (m/s)"] = bomData[columns[2]].apply(lambda x: x*1000/(60*60))
 
-        masterDF = masterDF.append(bomData)
+        masterDF = pd.concat([masterDf, bomData])
 
     masterDF = masterDF.sort_values(by="Time ({})".format(timeZone)).reset_index(drop=True)
 
-    print(len(masterDF))
-
     return masterDF, timeZone
 
+# EXAMPLE
 if __name__ == "__main__":
     df = bomDF("wa", "perth", "perth-airport")
-    print(df)
