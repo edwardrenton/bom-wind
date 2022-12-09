@@ -1,2 +1,2 @@
 # bomWind
-Scrape wind data from the BOM
+Scrape Bureau of Meteorology windspeed data from any weather station in Australia
