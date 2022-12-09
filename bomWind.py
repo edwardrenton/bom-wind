@@ -24,7 +24,7 @@ def bomDF(state, place, station):
         'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36'
     }
 
-    bomWebsite = requests.get('http://www.bom.gov.au/places/{}/{}/observations/{}/'.format(state, place1, place2), headers=headers)
+    bomWebsite = requests.get('http://www.bom.gov.au/places/{}/{}/observations/{}/'.format(state, place, station), headers=headers)
     html = bomWebsite.text
 
     tables = pd.read_html(html, match = "Wind Speed")
